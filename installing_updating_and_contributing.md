@@ -9,7 +9,7 @@ Node.js is just used a development enviroment. You'll soon be able to create sel
 
 ### Fresh install
 
-1. Install the Substance Screwdriver command line utility. It's just a little commandline helper that hels you deal with our modules.
+1. Install the Substance Screwdriver command line utility. It's just a little helper that hels you deal with our modules.
 
    ```bash
    $ git clone https://github.com/substance/screwdriver.git
