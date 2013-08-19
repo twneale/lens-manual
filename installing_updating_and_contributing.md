@@ -5,6 +5,8 @@
 - Node.js >=0.8.x
 - Google Chrome
 
+Node.js is just used a development enviroment. You'll soon be able to create self-contained packages of the individual modules our the main app itself.
+
 ### Fresh install
 
 1. Install the Substance Screwdriver command line utility. It's just a little commandline helper that hels you deal with our modules.
@@ -49,7 +51,7 @@ And start the dev environment again.
 
 ## Contributing
 
-I'm assuming here that you have push access to the repositories, because as a start I'd like to get the Lens core dev team get up and running. I'll provide documentation on how to work with a forked version of a module and submit a pull request soon.
+I'm assuming here that you have push access to the repositories, because as a start I'd like to get the Lens core dev team up and running. I'll provide documentation on how to work with a forked version of a module and submit a pull request soon.
 
 
 Say you've made changes to the Lens.Artcile module. In order to commit them you simple have to navigate to `node_modules/lens-article` and do:
