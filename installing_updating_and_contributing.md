@@ -70,3 +70,5 @@ Alternatively, if you working on breaking changes you can switch to a different 
    $ git commit -m "Fixed X"
    $ git push
    ```
+   
+Then go to [Github](http://github.com) and submit a pull request.
