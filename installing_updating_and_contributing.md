@@ -72,3 +72,9 @@ Alternatively, if you working on breaking changes you can switch to a different 
    ```
    
 Then go to [Github](http://github.com) and submit a pull request.
+
+Another hint: To pull in upstream changes from master for the entire project do this:
+
+```
+substance --git -- pull origin master:<feature_branch_name>
+```
