@@ -58,7 +58,7 @@ And start the dev environment again.
 I'm assuming here that you have push access to the repositories, because as a start I'd like to get the Lens core dev team up and running. I'll provide documentation on how to work with a forked version of a module and submit a pull request soon.
 
 
-Say you've made changes to the Lens.Artcile module. In order to commit them you simple have to navigate to `node_modules/lens-article` and do:
+Say you've made changes to the Lens.Article module. In order to commit them you simply have to navigate to `node_modules/lens-article` and do:
 
    ```bash
    $ git add <YOUR STUFF>
