@@ -49,6 +49,10 @@ You may want to pull in updates every now and then, which is simple. In the Lens
    
 And start the dev environment again.
 
+   ```bash
+   $ substance
+   ```
+
 ## Contributing
 
 I'm assuming here that you have push access to the repositories, because as a start I'd like to get the Lens core dev team up and running. I'll provide documentation on how to work with a forked version of a module and submit a pull request soon.
