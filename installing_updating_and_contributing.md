@@ -19,6 +19,7 @@ It's just a little helper that hels you deal with our modules.
     $ cd screwdriver
     $ sudo python setup.py install
 
+
 ### Clone the Lens Mothership
 
     $ git clone https://github.com/elifesciences/lens.git
@@ -55,13 +56,13 @@ Say you've made changes to the Lens.Article module. In order to commit them you 
     $ git commit -m "Fixed X"
     $ git push
    
-Alternatively, if you working on breaking changes you can switch to a different branch, and submit a pull request using the Github interace. Here's how
+Alternatively, if you are working on breaking changes you can switch to a different branch, and submit a pull request using the Github interace. Here's how:
 
     $ git checkout -b my_feature_branch
     $ git add <YOUR STUFF>
     $ git commit -m "Fixed X"
     $ git push
- 
+
 Then go to [Github](http://github.com) and submit a pull request.
 
 Another hint: To pull in upstream changes from master for the entire project do this:
