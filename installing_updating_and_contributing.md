@@ -7,7 +7,7 @@ This documentation is a work-in-progress. However it reflects the latest state o
 - Node.js >=0.8.x
 - [Pandoc](http://johnmacfarlane.net/pandoc/installing.html) >= 1.11.x (for on-the-fly generation of the Lens manual from Markdown)
 
-Node.js is just used a development enviroment. You'll soon be able to create self-contained packages of the individual modules our the main app itself.
+Node.js is just used a development enviroment. You'll soon be able to create self-contained packages of the individual modules or the main app itself.
 
 ### Fresh install
 
