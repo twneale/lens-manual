@@ -209,3 +209,32 @@ Finally you have to register your new node type in `nodes/index.js`.
       "cat": require("./cat"),
       ...
     };
+
+
+Now in your actual document, you can specify and reference `cat` resources. It looks like so:
+
+    {
+      id: "example_doc",
+      "nodes": {
+        ...
+        "oliver": {
+          "id": "oliver"
+          "type": "cat",
+          "name": "Oliver",
+          "abilities": ["jump high", "eat much", "bite", "hunt mice"],
+        },
+        "paragraph_1": {
+          "id": "paragraph_1",
+          "type": "paragraph",
+          "content": "Last sunday I had much fun with Oliver the cat."
+        },
+        "figure_reference_oliver": {
+          "id":"figure_reference_oliver",
+          "type":"figure_reference",
+          "path": ["paragraph_3", "content"],
+          "target": "oliver",
+          "range":[31,37]
+        },
+        ...
+      }
+    }
