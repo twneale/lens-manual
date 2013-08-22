@@ -15,25 +15,23 @@ Node.js is just used a development enviroment. You'll soon be able to create sel
 
 ## Fresh install
 
-### Install the Substance Screwdriver command line utility. 
-
-It's just a little helper that hels you deal with our many modules.
+First install the Substance Screwdriver command line utility. It's just a little helper that hels you deal with our many modules.
 
     $ git clone https://github.com/substance/screwdriver.git
     $ cd screwdriver
     $ sudo python setup.py install
 
 
-### Clone the Lens Mothership
+Clone the Lens Mothership
 
     $ git clone https://github.com/elifesciences/lens.git
   
-### Run the update command, which pulls in all the sub-modules and dependencies
+Run the update command, which pulls in all the sub-modules and dependencies
 
     $ cd lens
     $ substance --update
   
-### Finally start the server
+Finally start the server
 
     $ substance
 
