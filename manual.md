@@ -49,6 +49,59 @@ And start the dev environment again.
 
     $ substance
 
+
+# The Lens Article
+
+The Lens Article Format is an implementation the [Substance Document Model](http://github.com/substance/document) dedicated to scientific content. It features basic content types such as paragraphs, headings, and various figure types such as images, tables and videos complete with captions and cross-references.
+
+The document defintions can be extended easily, so you can either create your own flavour or contribute to the Lens Article Format directly.
+
+## Why creating another spec for scientific documents?
+
+- XML-based formats such as NML are hard to consume by webclients
+- Strict separation of content and style. Existing formats target print, and thus contain style information, which makes them hard to process by computer programs
+- The greatest advantage of Lens Articles is that any of them can be viewed in Lens, a modern web-based interface for consuming science content.
+
+
+# The Lens Library
+
+With Lens 0.2.x we're proposing a simple interface for specifying Lens Libraries that can be organized using collections. If you would like to make your own content available to Lens, all you have to do is following the Lens Library specification.
+
+Lens always reads an a json file from an URL, that describes a library. It's completely up to you how you want to host your Lens libraries. You can put them on Amazon S3 as static files or use some server intrastructure that serve the library on the fly. Please note the library is completely separate from the documents. Libraries just have document records which reference a Lens document using a URL. Documents don't need to live on the same server whatsoever. With Lens we favorize a decentralized strategy for document hosting. Every publisher should be able to have full control about their hosted content. They can put it whereever they want.
+
+Supposing you'd like to host your pets library here `http://myserver.com/pets.json`, the contents must look like so:
+
+    {
+      id: "pet_library",
+      "nodes": {
+        "library": {
+          "type": "library"
+          "collections": ["cats", "dogs"]
+        },
+        "cats": {
+          "id": "cats",
+          "type": "collection",
+          "records": ["oliver", "minkie"]
+        },
+        ...
+        "oliver": {
+          "id": "oliver",
+          "title": "Oliver the cat",
+          "type": "record",
+          "url": "http://docserver.com/pets/oliver.json"
+        },
+        "minkie": {
+          "id": "minkie",
+          "title": "Minkie the cat",
+          "type": "record",
+          "url": "http://docserver.com/pets/minkie.json"
+        }
+      }
+    }
+
+Collections can either reference document records or again collections, that way you have a lot of freedom how to organize your library.
+
+
 # Contributing
 
 I'm assuming here that you have push access to the repositories, because as a start I'd like to get the Lens core dev team up and running. I'll provide documentation on how to work with a forked version of a module and submit a pull request soon.
@@ -153,7 +206,6 @@ Let's start with specifying the type definitions in `cat.js`. You cat
 
 
 That was easy. Now we need to implement a view for the `Cat` model we just defined. Here `cat_view.js`.
-
 
     var NodeView = require("../node").View;
 
