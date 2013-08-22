@@ -52,9 +52,9 @@ And start the dev environment again.
 
 # The Lens Article
 
-The Lens Article Format is an implementation the [Substance Document Model](http://github.com/substance/document) dedicated to scientific content. It features basic content types such as paragraphs, headings, and various figure types such as images, tables and videos complete with captions and cross-references.
+The Lens Article Format is an implementation of the [Substance Document Model](http://github.com/substance/document) dedicated to scientific content. It features basic content types such as paragraphs, headings, and various figure types such as images, tables and videos complete with captions and cross-references.
 
-The document defintions can be extended easily, so you can either create your own flavour or contribute to the Lens Article Format directly.
+The document defintions can be extended easily, so you can either create your own flavour or contribute to the Lens Article Format directly. We have auto-generated documentation for the latest [Lens Article spec](#lens_article).
 
 ## Why creating another spec for scientific documents?
 
