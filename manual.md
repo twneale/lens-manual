@@ -2,28 +2,28 @@ Disclaimer: This documentation is a work-in-progress. However, it reflects the l
 
 # Introduction
 
-[eLife Lens](http://elifesciences.org/lens) provides a novel way of looking at content on the web. It is designed to make life easier for researchers, reviewers, authors and readers. For example, have you tried to look at a figure in an online article, while at the same time trying to see what the author says about the figure, jumping all around the article, losing track of what you were looking for in the first place? The reason for this is that most online research articles are published in a fixed digital version of the original paper. With eLife Lens, we take full advantage of the internet’s flexibility.
+[eLife Lens](http://elifesciences.org/lens) provides a novel way of looking at content on the web. It is designed to make life easier for researchers, reviewers, authors and readers. For example, have you tried to look at a figure in an online article, while at the same time trying to see what the author says about the figure, jumping all around the article, losing track of what you were looking for in the first place? The reason for this is that most online research articles are published in a fixed digital version of the original paper. With eLife Lens, we take full advantage of the Internet’s flexibility.
 
 ## The Big Picture
 
-Lens has a pretty simple architecture. It is a stand-alone web application that can easily be hosted on any webserver. Every Lens instance can be configured to view arbitrary content, simply by specifying a URL to a Lens Library which has a bunch of documents, organized in collections. Lens Libraries as well as Lens Articles are stored as JSON. You'll learn more about these formats in the later chapers. What's important to note is that Lens follows a distributed architecture for content, which means Lens content (libraries and articles) can be hosted anywhere. It doesn't require one big centralized repository that has has all the content. Instead anyone (even authors) can host their own documents and libraries.
+Lens has a pretty simple architecture. It is a stand-alone web application that can easily be hosted on any webserver. Every Lens instance can be configured to view arbitrary content, simply by specifying a URL to a Lens Library, which has a bunch of documents, organized in collections. Lens Libraries as well as Lens Articles are stored as JSON. You'll learn more about these formats in later chapters. What's important to note is that Lens follows a distributed architecture for content, which means Lens content (libraries and articles) can be hosted anywhere. It doesn't require one big centralized repository that has all the content. Instead, anyone (even authors) can host their own documents and libraries.
 
 ![](http://f.cl.ly/items/2f3Q120T2g2f3k3f3V2V/lens-big-picture.png)
 
-The figure above shows independent Lens instances from two OA publishers, eLife and LandesBioscience, which have already adapted Lens for their content. There's another instance at `lens.substance.io`, which always has the latest Lens release and connects to it's own library, which holds all Lens-related documentation like the one you are currently reading.
+The figure above shows independent Lens instances from two OA publishers, eLife and Landes Bioscience, which have already adapted Lens for their content. There's another instance at `lens.substance.io`, which always has the latest Lens release and connects to its own library, which holds all Lens-related documentation like the one you are currently reading.
 
 ## The Lens Article Format
 
 The Lens Article Format is an implementation of the [Substance Document Model](http://github.com/substance/document) dedicated to scientific content. It features basic content types such as paragraphs, headings, and various figure types such as images, tables and videos complete with captions and cross-references.
 
-The document defintions can be extended easily, so you can either create your own flavour or contribute to the Lens Article Format directly. We have auto-generated documentation for the latest [Lens Article spec](#lens_article).
+The document definitions are easily extended, so you can either create your own flavour or contribute to the Lens Article Format directly. We have auto-generated documentation for the latest [Lens Article spec](#lens/lens_article).
 
-* Do we really need another spec for scientific documents?*
+Do we really need another spec for scientific documents?  
 
-We believe yes for the following reasons.
+We believe so for the following reasons:
 
-- XML-based formats such as NML are hard to consume by webclients
-- Strict separation of content and style is important. Existing formats target print, and thus contain style information, which makes them hard to process by computer programs
+- XML-based formats such as NLM are hard to consume by web clients.
+- Strict separation of content and style is important. Existing formats target print, and thus contain style information which makes them hard to process by computer programs.
 - The greatest advantage of Lens Articles is that any of them can be viewed in Lens, a modern web-based interface for consuming science content.
 
 
@@ -31,7 +31,7 @@ We believe yes for the following reasons.
 
 Lens articles are data-centric representations of digital content. Each content element lives as a node in a flat address space, identified by a unique id. Think of it as a database of independent content fragments.
 
-The following graphic shows a sample document containing a heading (`h1`), paragraph (`p1`), formula (`f1`). It also has an image (`i1`) and a table (`t1`) as well as two citations (`c1` and `c2`).
+The following graphic shows a sample document containing a heading (`h1`), paragraph (`p1`), and formula (`f1`). It also has an image (`i1`) and a table (`t1`) as well as two citations (`c1` and `c2`).
 
 ![](http://f.cl.ly/items/060x2w1f2r1A3y3D3z2w/lens-document-nodes.png)
 
@@ -45,7 +45,7 @@ Now these building blocks of a document are organized using views. The main body
 
 ## The Lens Library
 
-With Lens 0.2.x we're proposing a simple interface for specifying Lens Libraries that can be organized using collections. If you would like to make your own content available to Lens, all you have to do is following the Lens Library specification. See chapter "Publish your own Lens Library" to learn the details.
+With Lens 0.2.x we're proposing a simple interface for specifying Lens Libraries that can be organized using collections. If you would like to make your own content available to Lens, all you have to do is follow the Lens Library specification. See chapter "Publish your own Lens Library" to learn the details.
 
 ![](http://f.cl.ly/items/1m0b3V2L1K2g3V282c2a/Screen%20Shot%202013-08-26%20at%205.27.08%20PM.png)
 
@@ -59,11 +59,11 @@ It's fairly easy to install and run the latest Lens development version locally.
 - Node.js >=0.8.x
 - [Pandoc](http://johnmacfarlane.net/pandoc/installing.html) >= 1.11.x (for on-the-fly generation of the Lens manual from Markdown)
 
-Node.js is just used a development enviroment. You'll soon be able to create self-contained packages of the individual modules or the main app itself.
+Node.js is just used as a development environment. You'll soon be able to create self-contained packages of individual modules or the main app itself.
 
 ## Fresh install
 
-First install the Substance Screwdriver command line utility. It's just a little helper that hels you deal with our many modules.
+First install the Substance Screwdriver command line utility. It's just a little helper that helps you deal with our many modules.
 
     $ git clone https://github.com/substance/screwdriver.git
     $ cd screwdriver
@@ -83,7 +83,7 @@ Finally start the server
 
     $ substance
 
-You can have a look at the example document, by pointing your browser to `http://localhost:4000/#lorem_ipsum`, view the autogenerated Lens.Article documentation here `http://localhost:4000/#lens_article` or the manual `http://localhost:4000/#manual`.
+You can have a look at the example document, by pointing your browser to `http://localhost:4000/#lens/lorem_ipsum`, view the autogenerated Lens.Article documentation here `http://localhost:4000/#lens/lens_article` or the manual `http://localhost:4000/#lens/manual`.
    
 ## Keep your local version in sync
 
@@ -108,7 +108,7 @@ Say you've made changes to the Lens.Article module. In order to commit them you 
     $ git commit -m "Fixed X"
     $ git push
    
-Alternatively, if you are working on breaking changes you can switch to a different branch, and submit a pull request using the Github interace. Here's how:
+Alternatively, if you are working on breaking changes you can switch to a different branch, and submit a pull request using the Github interface. Here's how:
 
     $ git checkout -b my_feature_branch
     $ git add <YOUR STUFF>
@@ -125,7 +125,7 @@ Another hint: To pull in upstream changes from master for the entire project do 
 
 ## Publish your own Lens Library
 
-Lens always reads a json file from a URL, that describes a library. It's completely up to you how you want to host your Lens libraries. You can put them on Amazon S3 as static files or use some server intrastructure that serve the library on the fly. Please note, that libraries are completely decoupled from documents. Libraries just have document records which reference a Lens document using a URL. Documents don't need to live on the same server whatsoever. With Lens we favorize a decentralized strategy for document hosting. Every publisher should be able to have full control about their hosted content. You can put them whereever you like to.
+Lens always reads a JSON file from a URL that describes a library. It's completely up to you how you want to host your Lens libraries. You can put them on Amazon S3 as static files or use some server infrastructure that serves the library on the fly. Please note that libraries are completely decoupled from documents. Libraries just have document records which reference a Lens document using a URL. Documents don't need to live on the same server whatsoever. With Lens we favor a decentralized strategy for document hosting. Publishers should be able to have complete control of their hosted content. You can put documents wherever you like, too.
 
 
 Supposing you'd like to host your pets library here `http://myserver.com/pets.json`, the contents must look like so:
@@ -159,7 +159,7 @@ Supposing you'd like to host your pets library here `http://myserver.com/pets.js
       }
     }
 
-If you'd like to make your corpus of science documents available to Lens, you might want to have a look at [Refract](http://github.com/elifesciences/refract), our reference implementation of a NLM to Lens converter. Refract can be seeded with a list of NLM XML files, which are converted one by one and cached in memory for fast access of the converted JSON. Once seeding has been completed your running Refract forms a valid Substance Library, that you can view in Lens. All you have to do is changing the library_url to `http://localhost:1441/documents` in your Lens `index.html`:
+If you'd like to make your corpus of science documents available to Lens, you might want to have a look at [Refract](http://github.com/elifesciences/refract), our reference implementation of a NLM to Lens converter. Refract can be seeded with a list of NLM XML files, which are converted one by one and cached in memory for fast access of the converted JSON. Once seeding has completed, your running Refract forms a valid Substance Library that you can view in Lens. All you have to do is change the library_url to `http://localhost:1441/documents` in your Lens `index.html`:
 
     var app = new Lens({
       env: 'development',
@@ -172,7 +172,7 @@ Most customization can be done using CSS without interfering with the Lens codeb
 
 Say you'd like to like to color citation cards red.
 
-    #my_app .article .citations .resourece-header {
+    #my_app .article .citations .resource-header {
       background: red;
     }
 
@@ -180,16 +180,16 @@ You've got the basic idea, now it's on you. It should be easy to pull in changes
 
 ## Implement a new node type
 
-It doesn't take much to implement a new node type for Lens. However think carefully if there isn't an existing type that's close to what you need. We would prefer that you adjust existing types and contribute back. If we'd all figure out a way to find common ground in our scientific language that would be awesome. :)
+It doesn't take much to implement a new node type for Lens. However, consider carefully whether there isn't an existing type that will meet your need. We would prefer that you adjust existing types and contribute back. If we'd all figure out a way to find common ground in our scientific language that would be awesome. :)
 
-Anyways, let's create a new node type now. Only for demoing purposes let's create a `cat` node type that you can reference in the main body of the document. So first thing to do is creating a new folder in the `lens-article` repository  `/nodes/cat`. Structure of that folder will be like this:
+Anyway, let's create a new node type now. For the purpose of demonstration only, let's create a `cat` node type that you can reference in the main body of the document. The first thing to do is create a new folder in the `lens-article` repository  `/nodes/cat`. The structure of that folder will be like this:
 
     index.js
     cat.js
     cat_view.js
     cat.css
 
-Let's start with specifying the type definitions in `cat.js`. You cat 
+Let's start by specifying the type definitions in `cat.js`. 
 
     var _ = require('underscore');
     var Node = require('../node');
@@ -242,7 +242,7 @@ Let's start with specifying the type definitions in `cat.js`. You cat
     module.exports = Cat;
 
 
-That was easy. Now we need to implement a view for the `Cat` model we just defined. Here `cat_view.js`.
+That was easy. Now we need to implement a view for the `Cat` model we just defined. Here is `cat_view.js`.
 
     var NodeView = require("../node").View;
 
@@ -284,7 +284,7 @@ Add some styles in `cat.css`:
       color: green;
     }
 
-By convention there needs to be an `index.js` file in the repo.
+By convention, there needs to be an `index.js` file in the repo.
 
     var Cat = require('./cat');
     Cat.View = require('./cat_view');
