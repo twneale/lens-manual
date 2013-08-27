@@ -14,7 +14,7 @@ The figure above shows independent Lens instances from two OA publishers, eLife 
 
 ## The Lens Article Format
 
-The Lens Article Format is an implementation of the [Substance Document Model](http://github.com/substance/document) dedicated to scientific content. It features basic content types such as paragraphs, headings, and various figure types such as images, tables and videos complete with captions and cross-references.
+The Lens Article Format is an implementation of the [Substance Dlocument Model](http://github.com/substance/document) dedicated to scientific content. It features basic content types such as paragraphs, headings, and various figure types such as images, tables and videos complete with captions and cross-references.
 
 The document definitions are easily extended, so you can either create your own flavour or contribute to the Lens Article Format directly. We have auto-generated documentation for the latest [Lens Article spec](#lens/lens_article).
 
@@ -124,7 +124,7 @@ _Before_ running refract, either change the default value in `lib/cache_warmer.j
 
 Then run refract by executing
 
-    $ node server.js
+    $ CACHE_WARM_FILE=http://quasipartikel.at/xml_files.txt node server.js
 
 Once seeding has completed, the running Refract instance forms a valid Library that you can view in Lens. All you have to do is change the library_url to `http://localhost:1441/index.json` in your Lens `config/config.json` file:
 
@@ -133,7 +133,7 @@ Once seeding has completed, the running Refract instance forms a valid Library t
       "library_url": "http://localhost:1441/index.json"
     }
 
-Open Lens in the browser at `http://localhost:4000` and you should see your customized corpus of documents.
+Open Lens in the browser at `http://localhost:1441/index.json` and you should see your customized corpus of documents.
 
 
 # Contributing
