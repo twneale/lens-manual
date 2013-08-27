@@ -95,6 +95,45 @@ And start the dev environment again.
 
     $ substance
 
+## Configuration
+
+By default your local Lens installations serves a bunch of example documents plus Lens related documents. However you can easily configure Lens so it fetches content from a different source by apting `config/config.json` to your needs.
+
+
+## Setup Refract
+
+If you'd like to make your corpus of science documents available to Lens, you might want to have a look at [Refract](http://github.com/elifesciences/refract), our reference implementation of an NLM to Lens converter. Refract can be seeded with a list of NLM XML files, which are converted one by one and for fast access of the converted JSON. 
+
+  
+    $ git clone https://github.com/elifesciences/refract
+    $ cd refract
+    $ git checkout master
+
+Install dependencies
+
+    $ npm install
+
+Prepare a custom cache warm file and host it somewhere (e.g. `http://quasipartikel.at/xml_files.txt`):
+
+    https://myserver.com/example1.xml
+    https://myserver.com/example1.xml
+
+Refract expects to be pointed at a file that lists the documents that it should convert. It first looks for an 
+environment variable `CACHE_WARM_FILE`, and if it doesn't find one, it defailts to `http://s3.amazonaws.com/elife-lens/xml_files.txt`. 
+_Before_ running refract, either change the default value in `lib/cache_warmer.js` or set an enviornment variable `CACHE_WARM_FILE`.
+
+Then run refract by executing
+
+    $ node server.js
+
+Once seeding has completed, the running Refract instance forms a valid Library that you can view in Lens. All you have to do is change the library_url to `http://localhost:1441/index.json` in your Lens `config/config.json` file:
+
+    {
+      "env": "development",
+      "library_url": "http://localhost:1441/index.json"
+    }
+
+Open Lens in the browser at `http://localhost:4000` and you should see your customized corpus of documents.
 
 
 # Contributing
@@ -121,7 +160,6 @@ Then go to [Github](http://github.com) and submit a pull request.
 Another hint: To pull in upstream changes from master for the entire project do this:
 
     $ substance --git -- pull origin master:<feature_branch_name>
-
 
 ## Publish your own Lens Library
 
@@ -159,12 +197,8 @@ Supposing you'd like to host your pets library here `http://myserver.com/pets.js
       }
     }
 
-If you'd like to make your corpus of science documents available to Lens, you might want to have a look at [Refract](http://github.com/elifesciences/refract), our reference implementation of an NLM to Lens converter. Refract can be seeded with a list of NLM XML files, which are converted one by one and cached in memory for fast access of the converted JSON. Once seeding has completed, the running Refract instance forms a valid Library that you can view in Lens. All you have to do is change the library_url to `http://localhost:1441/documents` in your Lens `index.html`:
 
-    var app = new Lens({
-      env: 'development',
-      library_url: 'http://localhost:1441/documents'
-    });
+
 
 ## Adjusting styles
 
