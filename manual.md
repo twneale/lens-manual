@@ -159,7 +159,7 @@ Supposing you'd like to host your pets library here `http://myserver.com/pets.js
       }
     }
 
-If you'd like to make your corpus of science documents available to Lens, you might want to have a look at [Refract](http://github.com/elifesciences/refract), our reference implementation of a NLM to Lens converter. Refract can be seeded with a list of NLM XML files, which are converted one by one and cached in memory for fast access of the converted JSON. Once seeding has completed, your running Refract forms a valid Substance Library that you can view in Lens. All you have to do is change the library_url to `http://localhost:1441/documents` in your Lens `index.html`:
+If you'd like to make your corpus of science documents available to Lens, you might want to have a look at [Refract](http://github.com/elifesciences/refract), our reference implementation of an NLM to Lens converter. Refract can be seeded with a list of NLM XML files, which are converted one by one and cached in memory for fast access of the converted JSON. Once seeding has completed, the running Refract instance forms a valid Library that you can view in Lens. All you have to do is change the library_url to `http://localhost:1441/documents` in your Lens `index.html`:
 
     var app = new Lens({
       env: 'development',
