@@ -70,9 +70,10 @@ First install the Substance Screwdriver command line utility. It's just a little
     $ sudo python setup.py install
 
 
-Clone the Lens Mothership
+Clone the Lens Mothership and install the dependencies
 
     $ git clone https://github.com/elifesciences/lens.git
+    $ npm install express handlebars request
   
 Run the update command, which pulls in all the sub-modules and dependencies
 
