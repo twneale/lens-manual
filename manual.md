@@ -58,6 +58,7 @@ It's fairly easy to install and run the latest Lens development version locally.
 
 - Node.js >=0.8.x
 - [Pandoc](http://johnmacfarlane.net/pandoc/installing.html) >= 1.11.x (for on-the-fly generation of the Lens manual from Markdown)
+- [npm](https://npmjs.org/)
 
 Node.js is just used as a development environment. You'll soon be able to create self-contained packages of individual modules or the main app itself.
 
